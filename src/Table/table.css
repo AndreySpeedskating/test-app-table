@@ -1,0 +1,182 @@
+.Table {
+    display: table;
+    width: 90vw;
+    margin-top: 50px;
+    border: 2px solid white;
+}
+
+.Row {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-box-flex: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    width: 100%;
+    height: 7%;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-transition: 0.5s ease;
+    -o-transition: 0.5s ease;
+    transition: 0.5s ease;
+}
+.Row:hover {
+    border-radius: 5px;
+    -webkit-box-shadow: 0 0 2px 1px dodgerblue inset;
+    box-shadow: 0 0 2px 1px dodgerblue inset;
+}
+
+.Row.Head {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    width: 100%;
+    border-bottom: 2px white solid;
+    border-right: 2px white solid;
+}
+
+.Row.Full {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    width: 100%;
+    border-bottom: 2px white solid;
+    border-right: 2px white solid;
+}
+
+.Row.Head:hover {
+    border-radius: 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+.Cell {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    margin: 5px;
+    cursor: pointer;
+    padding: 2px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    overflow: hidden;
+}
+
+.Cell.Full {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    width: 70%;
+    -ms-flex-item-align: self-start;
+    align-self: self-start;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: self-start;
+    margin: 5px;
+    cursor: pointer;
+    padding: 2px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.Cell#empty {
+    width: 10%;
+    cursor: default;
+}
+
+.Cell#empty:hover {
+    border-radius: 0;
+    -webkit-box-shadow: 0 0 0 0;
+    box-shadow: 0 0 0 0;
+    cursor: default;
+}
+
+.Cell#num {
+    width: 5%;
+}
+
+.Cell#date {
+    width: 10%;
+}
+
+.Cell#name {
+    width: 10%;
+}
+
+.Cell#driver_name {
+    width: 20%;
+}
+
+.Cell#driver_telephone {
+    width: 10%;
+}
+
+.Cell#comment {
+    width: 10%;
+}
+
+.Cell#ATI {
+    width: 20%;
+}
+
+.Cell:hover {
+    border-radius: 5px;
+    -webkit-box-shadow: 0 0 2px 1px dodgerblue inset;
+    box-shadow: 0 0 2px 1px dodgerblue inset;
+}
+
+a {
+    color: lightgray;
+}
+
+a:hover {
+    color: darkseagreen;
+}
+
+button.Cell {
+    width: 7%;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
+span {
+    cursor: default;
+}
