@@ -14,7 +14,7 @@ export const table  = (props, Show, Delete)=> {
             || i.to.toLowerCase().match(props.search)) {return i} else {return undefined}
     })
     let CloneState = (props.search === false)?
-        _.chunk(_.orderBy(props.item, props.SortField, props.SortType), 20) :
+        _.chunk(_.orderBy((props.item.length<1)?[undefined]:props.item, props.SortField, props.SortType), 20) :
         _.chunk(_.orderBy(SearchClone, props.SortField, props.SortType), props.item.length)
     console.log(CloneState)
     return (

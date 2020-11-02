@@ -9,7 +9,17 @@ let GetFromLS = (key) => {
 }
 
 let initialState = {
-    item: (GetFromLS('item') === null)? []: GetFromLS('item')/*[{
+    item: (GetFromLS('item') === null)? [{
+        number: '1',
+        date: '29.10.2020 19:40',
+        name: 'OOO INFO',
+        DriverName: 'Petrov Sergey Evgenyevich',
+        DriverTelephone: '+79994660399',
+        comment: 'Glass PLF',
+        ATI: 'https://ati.su/firms/12345/info',
+        from: 'Ilycha str. 28',
+        to: 'Babushkina str. 39'
+    }]: GetFromLS('item')/*[{
         number: '1',
         date: '29.10.2020 19:40',
         name: 'OOO INFO',
