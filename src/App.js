@@ -48,19 +48,19 @@ function mapStateToProps (state) {
 
 function mapDispatchToProps (dispatch) {
     return {
-        onAdd: (item) => (item() !== null) ? dispatch({type: '_Add', value: item()}) : null,
-        onClose: () => dispatch({type: '_Close'}),
-        onValid: (item, id) => dispatch({type: '_Validation', value: item, id: id}),
-        onDelete: (event) => dispatch({type: '_Delete', value: event.target.id}),
-        onSort: (item) => dispatch({type: '_OnSort', value: item}),
-        onShowFull: (event) => dispatch({type: '_ShowFull', index: event.target.id}),
-        onHideFull: () => dispatch({type: '_HideFull', value: false}),
-        onGetEditable: (event) => dispatch({type: '_GetEditable', value: event.target.id}),
-        onSaveChanges: (item, index) => dispatch({type: '_SaveChanges', value: item(), index: index}),
-        onCreate: () => dispatch({type: '_Create'}),
-        onSearch: (item) => dispatch({type: '_Search', value: item()}),
-        onSearchValue : (item) => dispatch({type: '_SearchValue', value: item()}),
-        onPageChangeHandler: ({selected}) => dispatch({type: '_PageSelector', value: selected})
+        onAdd: function (item) {if (item() !== null) dispatch({type: '_Add', value: item()})},
+        onClose: function () {dispatch({type: '_Close'})},
+        onValid: function (item, id) {dispatch({type: '_Validation', value: item, id: id})},
+        onDelete: function (event) {dispatch({type: '_Delete', value: event.target.id})},
+        onSort: function (item) {dispatch({type: '_OnSort', value: item})},
+        onShowFull: function (event) {dispatch({type: '_ShowFull', index: event.target.id})},
+        onHideFull: function () {dispatch({type: '_HideFull', value: false})},
+        onGetEditable: function (event) {dispatch({type: '_GetEditable', value: event.target.id})},
+        onSaveChanges: function (item, index) {dispatch({type: '_SaveChanges', value: item(), index: index})},
+        onCreate: function () {dispatch({type: '_Create'})},
+        onSearch: function (item) {dispatch({type: '_Search', value: item()})},
+        onSearchValue : function(item) {dispatch({type: '_SearchValue', value: item()})},
+        onPageChangeHandler: function({selected}) {dispatch({type: '_PageSelector', value: selected})}
     }
 }
 

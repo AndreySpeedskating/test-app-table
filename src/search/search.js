@@ -3,7 +3,7 @@ import './search.css'
 
 let short_id = require('shortid')
 
-let SearchValue = (className) => {
+function SearchValue (className) {
     let value = document.getElementById(className).value
      if (value !== null) return value
 }

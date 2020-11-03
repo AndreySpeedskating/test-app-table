@@ -1,6 +1,6 @@
 import React from "react";
 
-let GetData = (className) => {
+function GetData (className) {
     let array = Array.from(document.getElementsByClassName(className))
     let result = array.every(i => i.value !== '')
     return (!!result)?
