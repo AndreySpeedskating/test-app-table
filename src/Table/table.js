@@ -10,7 +10,7 @@ export const table  = (props, Show, Delete)=> {
     let sort = props.SortType === 'asc'? String.fromCodePoint(0x2191): String.fromCodePoint(0x2193)
     let SearchClone = props.item.map((i) => search(i, props))
     let CloneState = (props.search === false)?
-        _.chunk(_.orderBy((props.item.length<1)?[undefined]:props.item, props.SortField, props.SortType), 20) :
+        _.chunk(_.orderBy((props.item.length<1)?[undefined]:props.item, props.SortField, props.SortType), props.pageSize) :
         _.chunk(_.orderBy(SearchClone, props.SortField, props.SortType), props.item.length)
     return (
         <div key={short_id.generate()} className={'Table'}>

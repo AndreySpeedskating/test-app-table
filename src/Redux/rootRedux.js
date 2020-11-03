@@ -124,10 +124,6 @@ export default function reducer (state = initialState, action) {
             }).join('') : false
             return { ...state, search: result, currentPage: 0}
         }
-
-        case '_SearchValue': {
-            return { ...state}
-        }
         case '_Close': {
             return {...state, create: false}
         }

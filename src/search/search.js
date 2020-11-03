@@ -11,10 +11,9 @@ function SearchValue (className) {
 export const Search = (props) => {
     return (
         <div className={'SearchHead'} key={short_id.generate()}>
-            <button key={short_id.generate()} className={'search'} onClick={props.onSearch.bind(this, SearchValue.bind(this, 'searchInput'))}>Поиск</button>
+            <button key={short_id.generate()} className={'search'} onClick={props.onSearch.bind(this, SearchValue.bind(this, 'searchInput'))}>{(props.search === false)?'Поиск':'Сброс'}</button>
             <input key={short_id.generate()} className={'search'} id={'searchInput'}
-                   type="text" onInput={props.onSearchValue.bind(this, SearchValue.bind(this, 'searchInput'))}
-                   autoComplete={'off'}
+                   type="text" autoComplete={'off'} onInput={event => event.preventDefault}
             />
         </div>
     )
