@@ -1,16 +1,16 @@
 
-let DateOfBid = () => {
+function DateOfBid ()  {
     return new Date().toLocaleDateString() + ' '+ new Date().toLocaleTimeString().slice(0, -3)
 }
 
-export const inputClean = (className) => {
+export function inputClean (className) {
     let i = document.getElementsByClassName(className)
     for (let j=0; j<i.length; j++) {
         i[j].value = ''
     }
 }
 
-export const inputsValue = (className, props) => {
+export function inputsValue (className, props) {
     let array = Array.from(document.getElementsByClassName(className))
     let result = array.every(i => i.value !== '')
     return (!!result)?
@@ -24,4 +24,11 @@ export const inputsValue = (className, props) => {
             from: array[5].value,
             to: array[6].value
         } : null
+}
+
+export function search (i, props) {
+    if (i.number.toLowerCase().match(props.search) || i.date.toLowerCase().match(props.search) || i.name.toLowerCase().match(props.search)
+        || i.DriverName.toLowerCase().match(props.search) || i.DriverTelephone.toLowerCase().match(props.search)
+        || i.comment.toLowerCase().match(props.search) || i.ATI.toLowerCase().match(props.search) || i.from.toLowerCase().match(props.search)
+        || i.to.toLowerCase().match(props.search)) {return i} else {return undefined}
 }

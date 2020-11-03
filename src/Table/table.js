@@ -2,21 +2,16 @@ import React from 'react';
 import './table.css';
 import {ShowFull} from "./showFull"
 import _ from 'lodash'
+import {search} from "../function/function";
 
 let short_id = require('shortid')
 
 export const table  = (props, Show, Delete)=> {
     let sort = props.SortType === 'asc'? String.fromCodePoint(0x2191): String.fromCodePoint(0x2193)
-    let SearchClone = props.item.map((i)=> {
-        if (i.number.toLowerCase().match(props.search) || i.date.toLowerCase().match(props.search) || i.name.toLowerCase().match(props.search)
-            || i.DriverName.toLowerCase().match(props.search) || i.DriverTelephone.toLowerCase().match(props.search)
-            || i.comment.toLowerCase().match(props.search) || i.ATI.toLowerCase().match(props.search) || i.from.toLowerCase().match(props.search)
-            || i.to.toLowerCase().match(props.search)) {return i} else {return undefined}
-    })
+    let SearchClone = props.item.map((i) => search(i, props))
     let CloneState = (props.search === false)?
         _.chunk(_.orderBy((props.item.length<1)?[undefined]:props.item, props.SortField, props.SortType), 20) :
         _.chunk(_.orderBy(SearchClone, props.SortField, props.SortType), props.item.length)
-    console.log(CloneState)
     return (
         <div key={short_id.generate()} className={'Table'}>
             <div key={short_id.generate()} className={'Row Head'}>

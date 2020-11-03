@@ -13,7 +13,9 @@ import {Search} from "./search/search";
 
 class App extends Component{
 
+
     isValid = (event) => {
+        console.log(event.target.value)
         document.getElementById('Add').disabled = 'disabled'
         let valid = event.target.id !== 'DriverTelephone' ? '[А-Яа-яЁё,a-zA-Z]{2,}' : '^\\+?[0-9]{11}'
         let result =  !!event.target.value.match(valid)

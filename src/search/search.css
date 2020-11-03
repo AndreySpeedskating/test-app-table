@@ -37,5 +37,12 @@ input.search {
     -webkit-box-direction: normal;
     -ms-flex-direction: row;
     flex-direction: row;
+    outline: none;
     width: 90%;
+}
+
+input.search:focus {
+    -webkit-box-shadow: 0 0 2px 2px dodgerblue;
+    box-shadow: 0 0 2px 2px dodgerblue;
+    border-radius: 5px;
 }
