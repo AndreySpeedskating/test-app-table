@@ -43,3 +43,24 @@ export function isValid (event) {
     let Values = Object.values(this.props.validation).every((i)=> i === true)
     if (Values) document.getElementById('Add').disabled = ''
 }
+
+export function GetData (className) {
+    let array = Array.from(document.getElementsByClassName(className))
+    let result = array.every(i => i.value !== '')
+    return (!!result)?
+        {   number: array[0].innerHTML,
+            date: array[1].innerHTML,
+            name: array[2].innerHTML,
+            DriverName: array[3].innerHTML,
+            DriverTelephone: array[4].innerHTML,
+            comment: array[5].innerHTML,
+            ATI: array[6].innerHTML,
+            from: array[7].innerHTML,
+            to: array[8].innerHTML
+        } : null
+}
+
+export function SearchValue (id) {
+    let value = document.getElementById(id).value
+    if (value !== null) return value
+}

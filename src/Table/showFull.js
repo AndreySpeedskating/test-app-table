@@ -1,20 +1,5 @@
 import React from "react";
-
-function GetData (className) {
-    let array = Array.from(document.getElementsByClassName(className))
-    let result = array.every(i => i.value !== '')
-    return (!!result)?
-        {   number: array[0].innerHTML,
-            date: array[1].innerHTML,
-            name: array[2].innerHTML,
-            DriverName: array[3].innerHTML,
-            DriverTelephone: array[4].innerHTML,
-            comment: array[5].innerHTML,
-            ATI: array[6].innerHTML,
-            from: array[7].innerHTML,
-            to: array[8].innerHTML
-        } : null
-}
+import {GetData} from "../function/function";
 
 let short_id = require('shortid')
 

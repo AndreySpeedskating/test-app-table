@@ -18,7 +18,7 @@ class App extends Component{
         return (
             <div className="App">
                 {Search(this.props)}
-                {table(this.props, this.props.onShowFull.bind(), this.props.onDelete.bind())}
+                {table(this.props)}
                 {this.props.item.length>1? TablePaginate(this.props): null}
                 {(this.props.create)?input(this.props, isValid.bind(this)): CreateButton(this.props)}
                 {(this.props.input === false)? inputClean.call(this, 'input'): null}
