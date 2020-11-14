@@ -1,7 +1,7 @@
 .Table {
     display: table;
     width: 90vw;
-    margin-top: 50px;
+    margin: 50px 0 0 0;
     border: 2px solid white;
 }
 
