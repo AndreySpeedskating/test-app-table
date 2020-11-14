@@ -1,4 +1,5 @@
 
+
 function DateOfBid ()  {
     return new Date().toLocaleDateString() + ' '+ new Date().toLocaleTimeString().slice(0, -3)
 }
@@ -34,13 +35,13 @@ export function search (i, props) {
 }
 
 
-export function isValid (event) {
+export function isValid (event, props) {
     document.getElementById('Add').disabled = 'disabled'
     let valid = event.target.id !== 'DriverTelephone' ? '[А-Яа-яЁё,a-zA-Z]{2,}' : '^\\+?[0-9]{11}'
     let result =  !!event.target.value.match(valid)
     result === false? event.target.classList.add('invalid') : event.target.classList.remove('invalid')
-    if (event.target.value.length>0) this.props.onValid(result, event.target.id)
-    let Values = Object.values(this.props.validation).every((i)=> i === true)
+    if (event.target.value.length>0) props.onValid(result, event.target.id)
+    let Values = Object.values(props.validation).every((i)=> i === true)
     if (Values) document.getElementById('Add').disabled = ''
 }
 
@@ -64,3 +65,4 @@ export function SearchValue (id) {
     let value = document.getElementById(id).value
     if (value !== null) return value
 }
+

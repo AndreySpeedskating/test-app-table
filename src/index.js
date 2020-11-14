@@ -1,10 +1,11 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from "react";
+import ReactDOM from "react-dom";
 import './index.css';
 import App from './App';
-import {createStore, applyMiddleware} from 'redux'
-import reducer from './Redux/rootRedux'
-import {Provider} from 'react-redux'
+import {createStore, applyMiddleware} from "redux";
+import reducer from './Redux/rootRedux';
+import {Provider} from "react-redux";
+import thunk from "redux-thunk";
 
 const loggerMiddleware = store => next => action => {
     const result = next(action)
@@ -12,7 +13,7 @@ const loggerMiddleware = store => next => action => {
     return result
 }
 
-const store = createStore(reducer, applyMiddleware(loggerMiddleware))
+const store = createStore(reducer, applyMiddleware(loggerMiddleware, thunk))
 
 const application = (
     <Provider store = {store}>

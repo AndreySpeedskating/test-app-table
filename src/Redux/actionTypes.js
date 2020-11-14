@@ -1,0 +1,12 @@
+export const _ADD = '_Add' // add bid
+export const _VALIDATION = '_Validation' //input validation
+export const _SORT = '_OnSort' // sort table
+export const _SHOW_FULL = '_ShowFull' //show full information of bid
+export const _HIDE_FULL = '_HideFull' //hide full information of bid
+export const _EDIT_ENABLED = '_GetEditable' //enabled contenteditable
+export const _SAVE_CHANGES = '_SaveChanges' // save changes after edit bid
+export const _CREATE = '_Create' // open field of create bid
+export const _SEARCH = '_Search' // search item in table
+export const _CLOSE = '_Close' // close field of create bid
+export const _PAGE_SELECTOR = '_PageSelector' // pagination
+export const _DELETE = '_Delete' // delete bid

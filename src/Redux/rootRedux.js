@@ -1,3 +1,5 @@
+import * as types from './actionTypes'
+
 const reduxReducer = require('redux')
 
 let SaveToLS = (item) => {
@@ -51,18 +53,18 @@ let initialState = {
     },
     input: false,
     SortType: 'asc',
-    SortField: 'id',
+    SortField: 'number',
     Row: false,
     Editable: false,
     create: false,
     search: false,
-    pageSize: 20,
+    pageSize: 10,
     currentPage: 0
 }
 
 export default function reducer (state = initialState, action) {
     switch (action.type) {
-        case '_Add': {
+        case types._ADD: {
             let AddBid = action.value
             SaveToLS([...state.item, AddBid])
             return {
@@ -79,7 +81,7 @@ export default function reducer (state = initialState, action) {
             }
 
         }
-        case '_Validation': {
+        case types._VALIDATION: {
             let valid = state.validation
             let key = action.id
             valid[key] = action.value
@@ -87,23 +89,23 @@ export default function reducer (state = initialState, action) {
                 ...state, validation: valid, input: true
             }
         }
-        case '_OnSort': {
+        case types._SORT: {
             let SortType = state.SortType === 'asc'? 'desc' : 'asc'
             let SortField = action.value
             return {
                 ...state, SortType, SortField
             }
         }
-        case '_ShowFull': {
+        case types._SHOW_FULL: {
             return {...state, Row: action.index}
         }
-        case '_HideFull': {
+        case types._HIDE_FULL: {
             return {...state, Row: action.value}
         }
-        case '_GetEditable': {
+        case types._EDIT_ENABLED: {
             return {...state, Editable: action.value}
         }
-        case '_SaveChanges': {
+        case types._SAVE_CHANGES: {
             let CloneState = state.item
             CloneState[action.index] = action.value
             console.log(action.index, action.value)
@@ -112,10 +114,10 @@ export default function reducer (state = initialState, action) {
                 ...state, item: CloneState, Row: false
             }
         }
-        case '_Create': {
+        case types._CREATE: {
             return { ...state, create: true}
         }
-        case '_Search': {
+        case types._SEARCH: {
             let string = action.value.trim().toLowerCase() === ''? false : action.value.trim().toLowerCase().split('')
             let result = (string !== false)?string.map((i)=> {
                 let item
@@ -124,14 +126,14 @@ export default function reducer (state = initialState, action) {
             }).join('') : false
             return { ...state, search: result, currentPage: 0}
         }
-        case '_Close': {
+        case types._CLOSE: {
             return {...state, create: false}
         }
-        case '_PageSelector': {
+        case types._PAGE_SELECTOR: {
             let currentPage = action.value
             return { ...state, currentPage}
         }
-        case '_Delete': {
+        case types._DELETE: {
             let item = state.item
             item.splice(action.value, 1)
             SaveToLS(item)

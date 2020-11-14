@@ -5,23 +5,24 @@ import {table} from "./Table/table";
 import {input} from "./Input/input";
 import {inputClean, isValid} from "./function/function";
 import {TablePaginate} from "./paginate/paginate"
-import {CreateButton} from "./createbutton/createBid";
+import {Button} from "./button/button";
 import {Search} from "./search/search";
+import * as types from "./Redux/actionTypes"
+import {Close, add, searchValue, Valid, Delete, Sort, ShowFull, HideFull} from "./Redux/action";
 
 
 
 
 class App extends Component{
 
-
     render() {
         return (
             <div className="App">
                 {Search(this.props)}
                 {table(this.props)}
-                {this.props.item.length>1? TablePaginate(this.props): null}
-                {(this.props.create)?input(this.props, isValid.bind(this)): CreateButton(this.props)}
-                {(this.props.input === false)? inputClean.call(this, 'input'): null}
+                {this.props.item.length>10? TablePaginate(this.props): null}
+                {(this.props.create)?input(this.props, (event)=>isValid(event, this.props)): Button(()=>this.props.onCreate(), 'create', 'Создать заявку')}
+                {(this.props.input === false)? ()=>inputClean('input'): null}
             </div>
         )
     }
@@ -36,18 +37,18 @@ function mapStateToProps (state) {
 
 function mapDispatchToProps (dispatch) {
     return {
-        onAdd: function (item) {if (item() !== null) dispatch({type: '_Add', value: item()})},
-        onClose: function () {dispatch({type: '_Close'})},
-        onValid: function (item, id) {dispatch({type: '_Validation', value: item, id: id})},
-        onDelete: function (event) {dispatch({type: '_Delete', value: event.target.id})},
-        onSort: function (item) {dispatch({type: '_OnSort', value: item})},
-        onShowFull: function (event) {dispatch({type: '_ShowFull', index: event.target.id})},
-        onHideFull: function () {dispatch({type: '_HideFull', value: false})},
-        onGetEditable: function (event) {dispatch({type: '_GetEditable', value: event.target.id})},
-        onSaveChanges: function (item, index) {dispatch({type: '_SaveChanges', value: item(), index: index})},
-        onCreate: function () {dispatch({type: '_Create'})},
-        onSearch: function (item) {dispatch({type: '_Search', value: item()})},
-        onPageChangeHandler: function({selected}) {dispatch({type: '_PageSelector', value: selected})}
+        onAdd: function (item) {if (item() !== null) dispatch(add(item))},
+        onClose: function () {dispatch(Close())},
+        onValid: function (item, id) {dispatch(Valid(item, id))},
+        onDelete: function (event) {dispatch(Delete(event))},
+        onSort: function (item) {dispatch(Sort(item))},
+        onShowFull: function (event) {dispatch(ShowFull(event))},
+        onHideFull: function () {dispatch(HideFull())},
+        onGetEditable: function (event) {dispatch({type: types._EDIT_ENABLED, value: event.target.id})},
+        onSaveChanges: function (item, index) {dispatch({type: types._SAVE_CHANGES, value: item(), index: index})},
+        onCreate: function () {dispatch({type: types._CREATE})},
+        onSearch: function (item) {dispatch(searchValue(item))},
+        onPageChangeHandler: function({selected}) {dispatch({type: types._PAGE_SELECTOR, value: selected})}
     }
 }
 

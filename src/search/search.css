@@ -27,6 +27,13 @@ button.search {
     -webkit-box-pack: center;
     -ms-flex-pack: center;
     justify-content: center;
+    -webkit-transition: 0.5s ease;
+    -o-transition: 0.5s ease;
+    transition: 0.5s ease;
+}
+
+button.search:hover {
+    box-shadow: 0 0 2px 2px dodgerblue;
 }
 
 input.search {
@@ -38,7 +45,8 @@ input.search {
     -ms-flex-direction: row;
     flex-direction: row;
     outline: none;
-    width: 90%;
+    margin-left: 3px;
+    width: 89%;
 }
 
 input.search:focus {

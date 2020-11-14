@@ -1,6 +1,7 @@
 import React from 'react'
 import './input.css'
 import {inputsValue} from "../function/function";
+import {Button} from "../button/button";
 
 
 export const input = (props, Validation) => {
@@ -13,8 +14,8 @@ export const input = (props, Validation) => {
             <span><input type="url" className={'input'} autoComplete={'off'} id={'ATI'} onInput={Validation}/>АТИ</span>
             <span><input type="text" className={'input'} autoComplete={'off'} id={'From'} onInput={Validation}/>Адрес отправления</span>
             <span><input type="text" className={'input'} autoComplete={'off'} id={'To'} onInput={Validation}/>Адрес доставки</span>
-            <button className={'button'} onClick={props.onAdd.bind(this, inputsValue.bind(this, 'input', props))} id={'Add'}>Создать Заявку</button>
-            <button className={'button'} onClick={props.onClose.bind(this)}>Закрыть</button>
+            {Button(() => props.onAdd(() => inputsValue('input', props)), 'button', 'Создать заявку', 'Add')}
+            {Button(() => props.onClose(), 'button', 'Закрыть')}
         </div>
     )
 }

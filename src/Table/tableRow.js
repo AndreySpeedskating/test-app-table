@@ -14,8 +14,8 @@ export function tableRow (item, props) {
             <div key={short_id.generate()} className={'Cell'} id={'driver_telephone'}>{i.DriverTelephone}</div>
             <div key={short_id.generate()} className={'Cell'} id={'comment'}>{i.comment}</div>
             <div key={short_id.generate()} className={'Cell'} id={'ATI'}><a href={i.ATI} target="_blank" rel='noreferrer'>{i.ATI}</a></div>
-            <button key={short_id.generate()} className={'Cell'} id={index} onClick={!props.Row?props.onShowFull.bind():props.onHideFull.bind() }>{!props.Row?'Показать':'Скрыть'}</button>
-            <button key={short_id.generate()} className={'Cell'} id={index} onClick={props.onDelete.bind()}>Удалить</button>
+            <button key={short_id.generate()} className={'Cell'} id={index} onClick={!props.Row?(event)=>props.onShowFull(event): (event)=> props.onHideFull(event)}>{!props.Row?'Показать':'Скрыть'}</button>
+            <button key={short_id.generate()} className={'Cell'} id={index} onClick={(event)=>props.onDelete(event)}>Удалить</button>
         </div>
         {props.Row === index.toString()?ShowFull(props, props.item[index], index):null}
     </React.Fragment>: null
