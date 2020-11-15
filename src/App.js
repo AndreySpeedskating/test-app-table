@@ -20,9 +20,9 @@ class App extends Component{
             <div className="App">
                 {Search(this.props)}
                 {(this.props.create)?input(this.props, (event)=>isValid(event, this.props)):table(this.props)}
-                {this.props.item.length>10? TablePaginate(this.props): null}
-                {(this.props.create)?null: Button(()=>this.props.onCreate(), 'create', 'Создать заявку')}
-                {(this.props.input === false)? ()=>inputClean('input'): null}
+                {(this.props.item.length>5 && !this.props.create)?TablePaginate(this.props): null}
+                {(!this.props.create)?Button(()=>this.props.onCreate(), 'create', 'Создать заявку'): null}
+                {(this.props.input === false)? inputClean('input'): null}
             </div>
         )
     }

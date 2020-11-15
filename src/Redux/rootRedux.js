@@ -58,7 +58,7 @@ let initialState = {
     Editable: false,
     create: false,
     search: false,
-    pageSize: 10,
+    pageSize: 5,
     currentPage: 0
 }
 
